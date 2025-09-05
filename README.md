@@ -1,11 +1,11 @@
-# 📝 Restarting a Kubernetes Pod with ksh
+# 🚀 Kubernetes Tools & Scripts
 
-This project provides a simple **ksh script** to delete a Kubernetes pod and re-apply its YAML manifest automatically.  
+This repository contains **useful tools and scripts for Kubernetes** to automate common DevOps and cluster administration tasks.  
 
-It is especially useful when:
-- A pod becomes **unresponsive**  
-- You need to **force a redeployment**  
-- You want to **automate troubleshooting** steps  
+It will grow with:
+- Pod management scripts  
+- Deployment and scaling automation  
+- Health checks and troubleshooting tools  
 
 ---
 
@@ -13,19 +13,21 @@ It is especially useful when:
 
 .
 ├── scripts/
-│ └── restart_pod.ksh # Script to delete and recreate a Kubernetes Pod
+│ ├── restart_pod.ksh # Script to delete and recreate a Kubernetes Pod
+│ └── (future scripts here)
 └── README.md
 
 ---
 
-## 📜 Script Location  
+## 🛠️ Available Scripts  
 
-The script is now located inside the **`scripts/`** folder:  
-[`scripts/restart_pod.ksh`](scripts/restart_pod.ksh)  
+| Script Name        | Description                                     | Language | Status        |
+|--------------------|-------------------------------------------------|----------|---------------|
+| `restart_pod.ksh`  | Deletes a pod and reapplies its YAML manifest    | ksh      | ✅ Ready       |
 
 ---
 
-## 🛠️ Usage  
+## ⚙️ Usage  
 
 1. Clone this repository or copy the script to your machine  
 2. Make the script executable:  
@@ -35,7 +37,7 @@ Run the script with:
 ./scripts/restart_pod.ksh <POD_NAME> <YAML_FILE_PATH> <NAMESPACE>
 Example:
 ./scripts/restart_pod.ksh selenium-pod /home/user/selenium.yaml default
-📖 Script Details
+📜 Script Details
 #!/bin/ksh
 # Usage: ./restart_pod.ksh <POD_NAME> <YAML_FILE> <NAMESPACE>
 
@@ -67,7 +69,7 @@ apply_yaml() {
 
 # Script start
 date >> ${LOG}
-# Check if the pod is running with all containers ready
+# Check if the pod is running with all containers ready (e.g., 3/3)
 kubectl get pod ${POD_NAME} -n ${NAMESPACE} | grep -w "${POD_NAME}" | grep "3/3" >> ${LOG}
 
 if [ $? -eq 0 ]; then
@@ -87,9 +89,7 @@ fi
 
 ✅ Requirements
 Kubernetes cluster access
-kubectl configured properly
+kubectl installed and configured
 A valid YAML manifest for the pod
 📜 License
 This project is licensed under the MIT License.
-
----
