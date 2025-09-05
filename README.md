@@ -84,6 +84,7 @@ else
     apply_yaml
     echo "Pod ${POD_NAME} recreated successfully." >> ${LOG}
 fi
+
 ✅ Requirements
 Kubernetes cluster access
 kubectl configured properly
@@ -92,7 +93,3 @@ A valid YAML manifest for the pod
 This project is licensed under the MIT License.
 
 ---
-
-Si quieres, puedo hacer que el **README** tenga una **sección de “scripts disponibles”** para que cada vez que agregues uno nuevo, quede documentado en una tabla con descripción, lenguaje y estado.  
-
-¿Quieres que lo deje ya con esa sección lista para crecer?
