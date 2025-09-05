@@ -67,7 +67,7 @@ apply_yaml() {
 
 # Script start
 date >> ${LOG}
-# Check if the pod is running with all containers ready (e.g., 3/3)
+# Check if the pod is running with all containers ready
 kubectl get pod ${POD_NAME} -n ${NAMESPACE} | grep -w "${POD_NAME}" | grep "3/3" >> ${LOG}
 
 if [ $? -eq 0 ]; then
