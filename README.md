@@ -70,7 +70,7 @@ date >> ${LOG}
 # Check if the pod is running with all containers ready
 kubectl get pod ${POD_NAME} -n ${NAMESPACE} | grep -w "${POD_NAME}" | grep "3/3" >> ${LOG}
 
-if [ $? -eq 0 ]; then
+if \[ $? -eq 0 \]; then
     echo "Pod ${POD_NAME}: OK" >> ${LOG}
 else
     # Save pod details and logs for troubleshooting
